@@ -307,7 +307,7 @@ struct ContentView: View {
                                             }
                                             
                                         }
-                                        //.border(Color.blue)
+                                        .border(Color.blue)
                                         .padding(.leading)
                                                 
                                             ProgressView(value: progress)
@@ -317,10 +317,10 @@ struct ContentView: View {
                                                 .rotationEffect(Angle(degrees: 90))
                                                 .padding(.bottom, 579.0)//bar の位置
                                                 .padding()
-                                                //.border(Color.blue)
+                                                .border(Color.blue)
                                     }
                                     .frame(width: 400, height: 600, alignment: .center)
-                                    //.border(Color.black)
+                                    .border(Color.blue)
                                     
                                     
 
@@ -338,7 +338,7 @@ struct ContentView: View {
                                         }
                                         .padding(.trailing)
                                     }
-                                    //.border(Color.blue)
+                                    .border(Color.blue)
 
                                     /*
                                     Button("ヒント見る", action: {
@@ -346,14 +346,14 @@ struct ContentView: View {
                                         //progress += 0.2
                                     })
                                      */
-                                     Button( action: {
+                                     Button(action: {
                                          answerNumber = answerNumber + 1
                                          //progress += 0.2
                                          AskGPT()
                                      }){
                                          Text("あなたの強みとは...")
                                              .font(.system(size: 16, weight: .black, design: .default))
-                                             .frame(width: 180, height: 32)
+                                             .frame(width: 280, height: 40)
                                              .foregroundColor(Color(.black))
                                              .background(Color(UIColor(red: 225/255, green: 255/255, blue: 103/255, alpha: 1)))
                                              .cornerRadius(12)
@@ -400,7 +400,7 @@ struct ContentView: View {
                                     .frame(width:380, height: 300)  // フレームサイズ指定
                                 
                                 Text(answer)//分析結果を表示
-                                .frame(width: 400, height: 200)
+                                .frame(width: 380, height: 300)
                                 //.border(Color.black, width: 1)
                                 //Spacer()
                                 //.padding()
