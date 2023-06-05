@@ -395,71 +395,76 @@ struct ContentView: View {
                                     //Spacer()
                                     Divider()
                                     HStack(alignment: .bottom) {
-                                        TextField("入力してください",text: self.$inputText, axis: .vertical)
-                                            .padding(8)
-                                            .lineLimit(1...10)
-                                            .frame(minHeight: 40)
-                                            .background(Color.white)
-                                            .cornerRadius(8.0)
-                                            .focused($isFocus)
-                                        Button {
-                                            sendMessage()
-                                          // action
-                                        } label: {
-                                            Text("↑")
-                                            .foregroundColor(.black)
-                                            .font(.title)
-                                            .frame(width: 40, height: 40)
-                                            .background(Color(UIColor(red: 255/255, green: 187/255, blue: 107/255, alpha: 1)))
-                                            .cornerRadius(8, corners: [.topLeft,.topRight, .bottomLeft, .bottomRight])
+                                        
+                                            TextField("入力してください",text: self.$inputText, axis: .vertical)
+                                                .padding(8)
+                                                .lineLimit(1...10)
+                                                .frame(minHeight: 40)
+                                                .background(Color.white)
+                                                .cornerRadius(8.0)
+                                                .focused($isFocus)
+                                            Button {
+                                                sendMessage()
+                                                // action
+                                            } label: {
+                                                Text("↑")
+                                                    .foregroundColor(.black)
+                                                    .font(.title)
+                                                    .frame(width: 40, height: 40)
+                                                    .background(Color(UIColor(red: 255/255, green: 187/255, blue: 107/255, alpha: 1)))
+                                                    .cornerRadius(8, corners: [.topLeft,.topRight, .bottomLeft, .bottomRight])
+                                            }
                                         }
+                                        //.frame(maxHeight: 130)
+                                        .padding(8)
+                                        //.background(Color.white)
                                     }
-                                    .padding(8)
-                                    //.background(Color.white)
-                                }
+                                    
+                                    
+                                    //MessageInputView(text: $inputText, isFocus: _isFocus)
+                                    
+                                    
+                                    /*
+                                     HStack {
+                                     TextField("Type your message here...", text: $inputText) //, axis: .vertical
+                                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                                     .keyboardType(.default)
+                                     .padding(.horizontal)
+                                     Button(action: {
+                                     sendMessage()
+                                     }){
+                                     Image("push")
+                                     .resizable()
+                                     .frame(width: 40, height: 38)
+                                     }
+                                     .padding(.trailing)
+                                     }
+                                     //.border(Color.blue)
+                                     
+                                     */
+                                    
+                                    /*
+                                     Button("ヒント見る", action: {
+                                     displayHint()
+                                     //progress += 0.2
+                                     })
+                                     */
+                                    
+                                    Button( action: {
+                                        answerNumber = answerNumber + 1
+                                        //progress += 0.2
+                                        AskGPT()
+                                    }){
+                                        Text("あなたの強みとは...")
+                                            .font(.system(size: 16, weight: .black, design: .default))
+                                            .frame(width: 280, height: 40)
+                                            .foregroundColor(Color(.black))
+                                            .background(Color(UIColor(red: 225/255, green: 255/255, blue: 103/255, alpha: 1)))
+                                            .cornerRadius(12)
+                                    }
+                                    //.border(Color.black)
                                 
-                                //MessageInputView(text: $inputText, isFocus: _isFocus)
                                 
-                                
-                                /*
-                                 HStack {
-                                 TextField("Type your message here...", text: $inputText) //, axis: .vertical
-                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                 .keyboardType(.default)
-                                 .padding(.horizontal)
-                                 Button(action: {
-                                 sendMessage()
-                                 }){
-                                 Image("push")
-                                 .resizable()
-                                 .frame(width: 40, height: 38)
-                                 }
-                                 .padding(.trailing)
-                                 }
-                                 //.border(Color.blue)
-                                 
-                                 */
-                                
-                                /*
-                                 Button("ヒント見る", action: {
-                                 displayHint()
-                                 //progress += 0.2
-                                 })
-                                 */
-                                
-                                Button( action: {
-                                    answerNumber = answerNumber + 1
-                                    //progress += 0.2
-                                    AskGPT()
-                                }){
-                                    Text("あなたの強みとは...")
-                                        .font(.system(size: 16, weight: .black, design: .default))
-                                        .frame(width: 280, height: 40)
-                                        .foregroundColor(Color(.black))
-                                        .background(Color(UIColor(red: 225/255, green: 255/255, blue: 103/255, alpha: 1)))
-                                        .cornerRadius(12)
-                                }
-                                //.border(Color.black)
                                 
                             }
                                     
@@ -468,6 +473,7 @@ struct ContentView: View {
                                 
                             }
                             .frame(width: 400, height: 200, alignment: .center)
+                            
                         
                     
             } else {
